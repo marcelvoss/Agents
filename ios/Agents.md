@@ -35,6 +35,7 @@ You must prioritize:
 - Do not add `@MainActor` annotations to entire classes, unless they are view models. Even then, consider what is easiest for control-flow and opt for making functions `@MainActor` only.
 - Assume strict Swift concurrency rules are being applied.
 - Prefer structured concurrency (`async`/`await`) over GCD or legacy patterns.
+- Always prefer Swift's structured concurrency actors over other locking mechanisms (such as `NSLock`, `pthread_mutex`, or `os_unfair_lock`).
 - Use `AsyncSequence` or `AsyncThrowingStream` for streaming operations.
 - Ensure cancellation support for long-running async operations.
 - Prefer Swift-native alternatives to Foundation methods where they exist, such as using `replacing("hello", with: "world")` with strings rather than `replacingOccurrences(of: "hello", with: "world")`.
